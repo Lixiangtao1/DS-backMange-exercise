@@ -1,15 +1,48 @@
 <template>
   <div class="login_container">
     <div class="login_box">
+      <!-- 头像区域 -->
       <div class="titleImg">
         <img src="@/assets/logo.png" alt="" >
+      </div>
+      <!-- 登录表单区域 -->
+      <div class="login_form">
+        <el-form ref="formData" :model="formData" label-width="80px">
+          <el-form-item label="用户名">
+            <el-input v-model="formData.userName"></el-input>
+          </el-form-item>
+          <el-form-item label="密码">
+            <el-input v-model="formData.password"></el-input>
+          </el-form-item>
+          <el-form-item>
+          <el-button type="primary" @click="login">登录</el-button>
+          <el-button @click="resetForm">重置</el-button>
+        </el-form-item>
+        </el-form>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  
+  data() {
+    return {
+      formData: {
+        userName: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    //登录    
+    login() {
+
+    },
+    // 重置
+    resetForm(formData) {
+      this.$refs.formData.resetFields();
+    }
+  }
 }
 </script>
 <style lang="less" scoped>
